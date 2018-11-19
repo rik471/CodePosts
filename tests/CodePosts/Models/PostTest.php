@@ -61,9 +61,12 @@ class PostTest extends AbstractTestCase
     }
     public function test_check_if_a_post_can_be_persisted()
     {
-        $post = $this->createPost();
-        $this->assertEquals('Post Test', $post->title);
+        $post = Post::create(['title' => 'Post Tes', "content" => "Content Test"]);
+        $this-> assertEquals('Post Test', $post->title);
         $this->assertEquals('Content Test', $post->content);
+
+        $post = Post::all()->first();
+        $this->assertEquals('Post Test', $post->title);
     }
 
 }
