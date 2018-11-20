@@ -1,11 +1,12 @@
 <?php
-namespace CodePress\CodePost\Tests\Models;
+namespace  CodePress\CodePosts\Tests\Models;
 
-use CodePress\CodePost\Models\Post;
+use CodePress\CodePosts\Models\Post;
 use CodePress\CodePosts\Tests\AbstractTestCase;
 use Illuminate\Validation\Validator;
 
 use Mockery as m;
+
 class PostTest extends AbstractTestCase
 {
     public function setUp()
@@ -61,7 +62,7 @@ class PostTest extends AbstractTestCase
     }
     public function test_check_if_a_post_can_be_persisted()
     {
-        $post = Post::create(['title' => 'Post Tes', "content" => "Content Test"]);
+        $post = Post::create(['title' => 'Post Test', "content" => "Content Test"]);
         $this-> assertEquals('Post Test', $post->title);
         $this->assertEquals('Content Test', $post->content);
 
@@ -85,7 +86,7 @@ class PostTest extends AbstractTestCase
         $this->assertFalse($post->isValid());
     }
 
-    public function test_can_slug()
+    public function test_can_sluggable()
     {
         $post = Post::create(['title' => 'Post Test', 'content' => 'Content Test']);
         $this->assertEquals($post->slug, "post-test");
@@ -95,5 +96,7 @@ class PostTest extends AbstractTestCase
         $post = Post::findBySlug("post-test-1");
         $this->assertInstanceOf(Post::class, $post);
     }
+
+
 
 }

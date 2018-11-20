@@ -1,5 +1,5 @@
 <?php
-namespace CodePress\CodePost\Models;
+namespace CodePress\CodePosts\Models;
 
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
@@ -15,7 +15,8 @@ class Post extends Model implements SluggableInterface
     protected $fillable = [
         'title',
         'content',
-        'slug'];
+        'slug'
+    ];
 
     protected $sluggable = [
         'build_from' => 'title',
@@ -53,12 +54,9 @@ class Post extends Model implements SluggableInterface
     }
 
 
-    public function categories()
+    /*public function categories()
     {
         return $this->morphToMany('\CodePress\CodeCategory\Models\Category', 'categorizable', 'codepress_categorizables');
     }
-    public function tags()
-    {
-        return $this->morphToMany('\CodePress\CodeTag\Models\Tag', 'taggable', 'codepress_taggables');
-    }
+   */
 }
