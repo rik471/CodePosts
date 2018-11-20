@@ -12,7 +12,10 @@ class Post extends Model implements SluggableInterface
 
     protected $table = "codepress_posts";
 
-    protected $fillable = ['title', 'content', 'slug'];
+    protected $fillable = [
+        'title',
+        'content',
+        'slug'];
 
     protected $sluggable = [
         'build_from' => 'title',

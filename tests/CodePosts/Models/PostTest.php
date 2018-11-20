@@ -69,4 +69,31 @@ class PostTest extends AbstractTestCase
         $this->assertEquals('Post Test', $post->title);
     }
 
+    public function test_can_validate_post()
+    {
+        $post = new Post();
+        $post->title = 'Post Test';
+        $post->content = 'Content Test';
+
+        $factory = $this->app->make('Illuminate\Validation\Factory');
+        $validator = $factory->make([], []);
+
+
+        $post->setValidator($validator);
+        $this->assertTrue($post->isValid());
+        $post->title = null;
+        $this->assertFalse($post->isValid());
+    }
+
+    public function test_can_slug()
+    {
+        $post = Post::create(['title' => 'Post Test', 'content' => 'Content Test']);
+        $this->assertEquals($post->slug, "post-test");
+        $post = Post::create(['title' => 'Post Test', 'content' => 'Content Test']);
+        $this->assertEquals($post->slug, "post-test-1");
+
+        $post = Post::findBySlug("post-test-1");
+        $this->assertInstanceOf(Post::class, $post);
+    }
+
 }
