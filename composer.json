@@ -1,7 +1,7 @@
 {
   "name": "codepress/code-posts",
   "require": {
-    "php": ">=7",
+    "php": ">=5.5.9",
     "illuminate/contracts": "5.2",
     "illuminate/http": "5.2",
     "illuminate/support": "5.2",
