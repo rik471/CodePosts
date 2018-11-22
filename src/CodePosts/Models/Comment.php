@@ -22,7 +22,6 @@ class Comment extends Model
     {
         $validator = $this->validator;
         $validator->setRules([
-            'title' => 'required|max:255',
             'content' =>'required'
         ]);
         $validator->setData($this->getAttributes());

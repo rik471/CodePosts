@@ -31,7 +31,6 @@ class CommentTest extends AbstractTestCase
         
         $validator = m::mock(Validator::class);
         $validator->shouldReceive('setRules')->with([
-            'title'=>'required|max:255',
             'content' => 'required'
         ]);
         $validator->shouldReceive('setData')->with([
@@ -51,7 +50,6 @@ class CommentTest extends AbstractTestCase
 
         $validator = m::mock(Validator::class);
         $validator->shouldReceive('setRules')->with([
-            'title'=>'required|max:255',
             'content' => 'required'
         ]);
         $validator->shouldReceive('setData')->with(['content' => '']);
