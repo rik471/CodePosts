@@ -18,13 +18,13 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($posts as $post)
+                @foreach($posts as $key => $post)
                     <tr>
                         <td>{{$post->id}}</td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->content}}</td>
                         <td>
-                            <a href="{{route('admin.posts.edit', ['id'=>$post->id])}}">
+                            <a name="link_edit_post_{{$key}}" href="{{route('admin.posts.edit', ['id'=>$post->id])}}">
                                 Edit
                             </a>
                         </td>
@@ -33,5 +33,5 @@
             </tbody>
         </table>
     </div>
-    
+
 @endsection
