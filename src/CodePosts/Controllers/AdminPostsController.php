@@ -12,6 +12,7 @@ class AdminPostsController extends Controller
 {
     private $repository;
     private $response;
+
     public function __construct(ResponseFactory $response, PostRepositoryInterface $repository)
     {
         $this->response = $response;
