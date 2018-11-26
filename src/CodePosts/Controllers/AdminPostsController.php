@@ -25,9 +25,9 @@ class AdminPostsController extends Controller
     }
     public function create()
     {
-        $posts = [];
+
         $posts = $this->repository->all();
-        return $this->response->view('codepost::create', compact('posts'));
+        return view('codepost::create', compact('posts'));
     }
     public function store(Request $request)
     {
@@ -36,24 +36,27 @@ class AdminPostsController extends Controller
     }
     public function edit($id)
     {
-        $posts = $this->repository->all();
         $post = $this->repository->find($id);
+        $posts = $this->repository->all();
         return $this->response->view('codepost::edit', compact('post', 'posts'));
     }
+
     public function update(Request $request, $id)
     {
         $data = $request->all();
         $this->repository->update($data, $id);
         return redirect()->route('admin.posts.index');
     }
+
     public function delete($id)
     {
         $this->repository->delete($id);
         return redirect()->route('admin.posts.index');
     }
+
     /*public function deleted()
     {
         $posts = $this->repository->getDeleted();
-        return $this->response->view('codepost::deleted', compact('posts'));
+        return $this->response->view('codeposts::deleted', compact('posts'));
     }*/
 }

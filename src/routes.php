@@ -1,8 +1,10 @@
 <?php
 
+
+
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin.posts',
+    'as' => 'admin.posts.',
     'namespace' => 'CodePress\CodePosts\Controllers',
     'middleware' => ['web']
 ], function () {
