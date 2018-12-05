@@ -1,6 +1,6 @@
 <?php
 
-namespace  CodePress\CodeComments\Tests\Models;
+namespace  CodePress\CodePosts\Tests\Models;
 
 use CodePress\CodePosts\Models\Post;
 use CodePress\CodePosts\Models\Comment;

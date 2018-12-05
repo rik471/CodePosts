@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CodePress\CodePosts\Controller;
+namespace CodePress\CodePosts\Controllers;
 
 
 use Illuminate\Routing\Controller as BaseController;

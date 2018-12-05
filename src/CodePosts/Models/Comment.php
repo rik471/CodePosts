@@ -1,21 +1,17 @@
 <?php
 namespace CodePress\CodePosts\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Validation\Validator;
 
 class Comment extends Model
 {
+    use SoftDeletes;
 
     protected $table = "codepress_comments";
-
-    protected $fillable = [
-        'content',
-        'post_id'
-    ];
-
-
+    protected $fillable = ['content','post_id'];
+    protected $dates = ['deleted_at'];
     protected $validator;
 
     public function isValid()
@@ -31,22 +27,16 @@ class Comment extends Model
         }
         return true;
     }
-
-
     public function setValidator(Validator $validator)
     {
         $this->validator = $validator;
     }
-
-
     public function getValidator()
     {
         return $this->validator;
     }
-
     public function post()
     {
         return $this->belongsTo(Post::class);
     }
-
 }
