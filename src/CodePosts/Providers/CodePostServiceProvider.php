@@ -7,6 +7,7 @@ use CodePress\CodePosts\Repository\PostRepositoryEloquent;
 use CodePress\CodePosts\Repository\PostRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
+
 class CodePostServiceProvider extends ServiceProvider
 {
     public function boot()

@@ -4,7 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCodePostsTable
+
+class CreateCodePostsTable extends Migration
+
 {
     public function up()
     {
