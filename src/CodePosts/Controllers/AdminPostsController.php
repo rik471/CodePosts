@@ -2,7 +2,6 @@
 
 namespace CodePress\CodePosts\Controllers;
 
-use CodePress\CodePosts\Controllers\Controller;
 use CodePress\CodePosts\Repository\PostRepositoryInterface;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
@@ -26,6 +25,7 @@ class AdminPostsController extends Controller
 
     public function create()
     {
+        $posts = [];
         $posts = $this->repository->all();
         return view('codepost::create', compact('posts'));
     }

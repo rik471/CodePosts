@@ -2949,17 +2949,17 @@
     },
     {
         "name": "symfony/event-dispatcher",
-        "version": "v3.4.20",
-        "version_normalized": "3.4.20.0",
+        "version": "v3.4.19",
+        "version_normalized": "3.4.19.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/event-dispatcher.git",
-            "reference": "cc35e84adbb15c26ae6868e1efbf705a917be6b5"
+            "reference": "d365fc4416ec4980825873962ea5d1b1bca46f1a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/cc35e84adbb15c26ae6868e1efbf705a917be6b5",
-            "reference": "cc35e84adbb15c26ae6868e1efbf705a917be6b5",
+            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/d365fc4416ec4980825873962ea5d1b1bca46f1a",
+            "reference": "d365fc4416ec4980825873962ea5d1b1bca46f1a",
             "shasum": ""
         },
         "require": {
