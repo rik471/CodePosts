@@ -13,11 +13,17 @@ use CodePress\CodePosts\Models\Comment;
 
 class Post extends Model implements SluggableInterface
 {
-    use SluggableTrait, SoftDeletes;
+    const STATE_PUBLISHED = 1;
+    const STATE_DRAFT = 2;
+    use SluggableTrait;
 
     protected $table = "codepress_posts";
-    protected $dates = ['deleted_at'];
-    protected $fillable = ['title', 'content', 'slug'];
+
+
+    protected $fillable = ['title',
+        'content',
+        'slug'
+    ];
 
 
     protected $sluggable = [
@@ -27,6 +33,16 @@ class Post extends Model implements SluggableInterface
     ];
 
     protected $validator;
+
+    public function setValidator(Validator $validator)
+    {
+        $this->validator = $validator;
+    }
+
+    public function getValidator()
+    {
+        return $this->validator;
+    }
 
     public function isValid()
     {
@@ -41,16 +57,6 @@ class Post extends Model implements SluggableInterface
             return false;
         }
         return true;
-    }
-
-    public function setValidator(Validator $validator)
-    {
-        $this->validator = $validator;
-    }
-
-    public function getValidator()
-    {
-        return $this->validator;
     }
 
     public function categories()

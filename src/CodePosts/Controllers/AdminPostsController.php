@@ -13,6 +13,7 @@ class AdminPostsController extends Controller
 
     public function __construct(ResponseFactory $response, PostRepositoryInterface $repository)
     {
+        $this->authorize('access_posts');
         $this->response = $response;
         $this->repository = $repository;
     }
@@ -46,19 +47,15 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $this->repository->update($data, $id);
+        $category = $this->repository->update($data, $id);
         return redirect()->route('admin.posts.index');
     }
 
-    public function delete($id)
+    public function updateState(Request $request, $id)
     {
-        $this->repository->delete($id);
-        return redirect()->route('admin.posts.index');
+        $this->authorize('publish_post');
+        $this->repository->updateState($id, $request->get('state'));
+        return redirect()->route('admin.posts.edit', ['id' => $id]);
     }
 
-    /*public function deleted()
-    {
-        $posts = $this->repository->getDeleted();
-        return $this->response->view('codepost::deleted', compact('posts'));
-    }*/
 }
