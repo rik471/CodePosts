@@ -13,7 +13,7 @@ class AdminPostsController extends Controller
 
     public function __construct(ResponseFactory $response, PostRepositoryInterface $repository)
     {
-        $this->authorize('access_posts');
+        //$this->authorize('access_posts');
         $this->response = $response;
         $this->repository = $repository;
     }
@@ -53,7 +53,6 @@ class AdminPostsController extends Controller
 
     public function updateState(Request $request, $id)
     {
-        $this->authorize('publish_post');
         $this->repository->updateState($id, $request->get('state'));
         return redirect()->route('admin.posts.edit', ['id' => $id]);
     }

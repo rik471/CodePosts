@@ -4,7 +4,7 @@ filter:
         - 'tests/*'
 before_commands:
     - 'composer --prefer-source --dev install'
-    - 'cp phpunit.xml.dist phpunit.xml'
+    - 'cp phpunit-mysql.xml.dist phpunit-mysql.xml'
 tools:
     php_mess_detector:
         config:
@@ -36,7 +36,7 @@ tools:
             standard: PSR2
     sensiolabs_security_checker: true
     php_code_coverage:
-        config_path: phpunit.xml.dist
+        config_path: phpunit-mysql.xml.dist
     php_cpd: true
     php_loc: true
     php_pdepend: true

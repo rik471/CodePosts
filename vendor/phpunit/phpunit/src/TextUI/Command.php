@@ -365,7 +365,7 @@ class PHPUnit_TextUI_Command
                     $this->printVersionString();
 
                     printf(
-                        "Generating phpunit.xml in %s\n\n",
+                        "Generating phpunit-mysql.xml in %s\n\n",
                         getcwd()
                     );
 
@@ -393,7 +393,7 @@ class PHPUnit_TextUI_Command
                     $generator = new PHPUnit_Util_ConfigurationGenerator;
 
                     file_put_contents(
-                        'phpunit.xml',
+                        'phpunit-mysql.xml',
                         $generator->generateDefaultConfiguration(
                             PHPUnit_Runner_Version::series(),
                             $bootstrapScript,
@@ -403,7 +403,7 @@ class PHPUnit_TextUI_Command
                     );
 
                     printf(
-                        "\nGenerated phpunit.xml in %s\n",
+                        "\nGenerated phpunit-mysql.xml in %s\n",
                         getcwd()
                     );
 
@@ -691,7 +691,7 @@ class PHPUnit_TextUI_Command
 
         if (isset($this->arguments['configuration']) &&
             is_dir($this->arguments['configuration'])) {
-            $configurationFile = $this->arguments['configuration'] . '/phpunit.xml';
+            $configurationFile = $this->arguments['configuration'] . '/phpunit-mysql.xml';
 
             if (file_exists($configurationFile)) {
                 $this->arguments['configuration'] = realpath(
@@ -704,11 +704,11 @@ class PHPUnit_TextUI_Command
             }
         } elseif (!isset($this->arguments['configuration']) &&
                   $this->arguments['useDefaultConfiguration']) {
-            if (file_exists('phpunit.xml')) {
-                $this->arguments['configuration'] = realpath('phpunit.xml');
-            } elseif (file_exists('phpunit.xml.dist')) {
+            if (file_exists('phpunit-mysql.xml')) {
+                $this->arguments['configuration'] = realpath('phpunit-mysql.xml');
+            } elseif (file_exists('phpunit-mysql.xml.dist')) {
                 $this->arguments['configuration'] = realpath(
-                    'phpunit.xml.dist'
+                    'phpunit-mysql.xml.dist'
                 );
             }
         }
@@ -1106,7 +1106,7 @@ Configuration Options:
 
   --bootstrap <file>        A "bootstrap" PHP file that is run before the tests.
   -c|--configuration <file> Read configuration from XML file.
-  --no-configuration        Ignore default configuration file (phpunit.xml).
+  --no-configuration        Ignore default configuration file (phpunit-mysql.xml).
   --no-coverage             Ignore code coverage configuration.
   --no-extensions           Do not load PHPUnit extensions.
   --include-path <path(s)>  Prepend PHP's include_path with given path(s).

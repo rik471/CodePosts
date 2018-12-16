@@ -12,6 +12,7 @@ Route::group([
     Route::post('/store', ['uses' => 'AdminPostsController@store', 'as' => 'store']);
     Route::get('{id}/edit/', ['uses' => 'AdminPostsController@edit', 'as' => 'edit']);
     Route::post('{id}/update', [ 'uses' => 'AdminPostsController@update', 'as' => 'update']);
-    Route::patch('{id}/update-state', [ 'uses' => 'AdminPostsController@updateState', 'as' => 'update_state']);
-
+    Route::patch('{id}/update-state', [ 'uses' => 'AdminPostsController@updateState', 'as' => 'update_state',
+       'middleware' => 'authorization:publish_post' ,
+    ]);
 });
